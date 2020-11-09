@@ -1,0 +1,18 @@
+@EndUserText.label: 'Acces Control for Travel'
+@MappingRole: true
+define role ZSERGI_ACCCONTROL {
+    grant
+        select
+            on
+                ZSERGI_CDS_TRAVEL_01
+                    where
+                        CurrencyCode = 'EUR' and
+                        ( TravelStatus ) = aspect pfcg_auth(ZSERGIAUOB, ZSERGI_AUT, ACTVT = '03') 
+    //Amb aqueta restrcició com que l'usuari no té al rol aquet objecte d'autorització, no podrá veure res!!!                    
+   //Encara que posem aqueta restricció , al fiori podrem veure les dades, ja que no hem posat cap DCL a nivell de
+   //la CDS de Projection, s'ha de posar a totes les CDS si ho volem sempre!!!' -> Per això acabem posant un dcl a nivell
+   //del projectiob view with inherited conditions!  
+                  
+                  or true; //Com no podem assigmnar Rols a usuaris al clou de trial posem aquet "or true" per tal que es vegin les dades a mode
+                  //de prova!!!
+}

@@ -1,0 +1,25 @@
+projection;
+
+use draft;
+
+define behavior for ZSERGI_CDS_C_TRAVEL_01 alias Travel
+//use etag  -- El comentem ja que per odata V2 no funciona els etags per draft
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Booking { create; with draft; }
+
+  use action acceptTravel;
+  use action rejectTravel;
+}
+
+define behavior for ZSERGI_CDS_C_BOOK_01 alias Booking
+//use etag -- El comentem ja que per odata V2 no funciona els etags per draft
+{
+  use update;
+  use delete;
+
+  use association _Travel { with draft; }
+}

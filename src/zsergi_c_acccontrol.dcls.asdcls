@@ -1,0 +1,11 @@
+@EndUserText.label: 'Acces Control for Travel Projectiob View'
+@MappingRole: true
+define role ZSERGI_C_ACCCONTROL {
+    grant
+        select
+            on
+                ZSERGI_CDS_C_TRAVEL_01
+                    where
+                        inheriting conditions from entity ZSERGI_CDS_TRAVEL_01;
+                        
+}

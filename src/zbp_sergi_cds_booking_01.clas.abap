@@ -1,0 +1,5 @@
+CLASS zbp_sergi_cds_booking_01 DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zsergi_cds_travel_01.
+ENDCLASS.
+
+CLASS zbp_sergi_cds_booking_01 IMPLEMENTATION.
+ENDCLASS.
