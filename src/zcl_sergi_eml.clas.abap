@@ -11,7 +11,8 @@ ENDCLASS.
 
 
 
-CLASS zcl_sergi_eml IMPLEMENTATION.
+CLASS ZCL_SERGI_EML IMPLEMENTATION.
+
 
   METHOD if_oo_adt_classrun~main.
 
@@ -130,5 +131,4 @@ CLASS zcl_sergi_eml IMPLEMENTATION.
     out->write( 'Delete done' ).
 
   ENDMETHOD.
-
 ENDCLASS.

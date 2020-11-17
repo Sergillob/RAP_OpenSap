@@ -12,7 +12,10 @@ define root view entity ZSERGI_CDS_TRAVEL_01
 
   composition [0..*] of ZSERGI_CDS_BOOK_01 as _Booking
 
-  association [0..1] to /DMO/I_Agency      as _Agency   on $projection.AgencyID = _Agency.AgencyID
+  //Asterisquem ja que al week 5 volem que les dades del Agency vinguin d'un odata Remot !!!!
+  //association [0..1] to /DMO/I_Agency      as _Agency   on $projection.AgencyID = _Agency.AgencyID
+  association [0..1] to zsergi_ce_agency   as _Agency   on $projection.AgencyID = _Agency.AgencyId
+  //Per això fem l'associació amb el Custom entity zsergi_cd_agency
   association [0..1] to /DMO/I_Customer    as _Customer on $projection.CustomerID = _Customer.CustomerID
   association [0..1] to I_Currency         as _Currency on $projection.CurrencyCode = _Currency.Currency
 

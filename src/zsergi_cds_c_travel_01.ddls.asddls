@@ -9,11 +9,14 @@ define root view entity ZSERGI_CDS_C_TRAVEL_01
   key TravelUUID,
       @Search.defaultSearchElement: true
       TravelID,
-      @Consumption.valueHelpDefinition: [{ entity: { name: '/DMO/I_Agency', element: 'AgencyID'} }]
-      @ObjectModel.text.element: ['AgencyName']
+      //Astersiquem ja que les dades del agewncy les traiem del odata remot (Custom entity zsergi_ce_agency)
+      // @Consumption.valueHelpDefinition: [{ entity: { name: '/DMO/I_Agency', element: 'AgencyID'} }]
+      // @ObjectModel.text.element: ['AgencyName']
+      @Consumption.valueHelpDefinition: [{ entity : {name: 'zsergi_ce_agency', element: 'AgencyId' } }]
       @Search.defaultSearchElement: true
       AgencyID,
-      _Agency.Name       as AgencyName,
+      //Astersisquem el _Agency.Name ja que a les Custom Entities no está permès les associacions a les projection views
+      //    _Agency.Name       as AgencyName,
       @Consumption.valueHelpDefinition: [{ entity: { name: '/DMO/I_Customer', element: 'CustomerID'} }]
       @ObjectModel.text.element: ['CustomerName']
       @Search.defaultSearchElement: true
